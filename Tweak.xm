@@ -172,7 +172,7 @@ static void reloadPrefs() {
 
 	// needed to do this for photos app (it doesn't seem to create a copy of prefs)
 	if (prefs == nil) {
-		prefs = [NSDictionary dictionaryWithContentsOfFile:kSettingsPath];
+		prefs = [[NSDictionary alloc] initWithContentsOfFile:kSettingsPath];
 	}
 
 	isEnabled = [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : YES;
@@ -180,6 +180,8 @@ static void reloadPrefs() {
 	batteryColorStyle = [prefs objectForKey:@"batteryColorStyle"] ? (BatteryColorStyle)[[prefs objectForKey:@"batteryColorStyle"] intValue] : kSolid;
 	isGradientLowPowerEnabled = [prefs objectForKey:@"isGradientLowPowerEnabled"] ? [[prefs objectForKey:@"isGradientLowPowerEnabled"] boolValue] : NO;
 	isGradientChargingEnabled = [prefs objectForKey:@"isGradientChargingEnabled"] ? [[prefs objectForKey:@"isGradientChargingEnabled"] boolValue] : NO;
+
+	[prefs release];
 }
 
 static void reloadColorPrefs() {
