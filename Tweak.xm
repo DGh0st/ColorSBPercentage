@@ -42,8 +42,104 @@ typedef struct {
 	unsigned wifiLinkWarning : 1;
 } SCD_Struct_UI72;
 
+// http://developer.limneos.net/index.php?ios=11.1.2&framework=UIKit.framework&header=UIKit-Structs.h
+typedef struct { // iOS 11
+	BOOL itemIsEnabled[35];
+	char timeString[64];
+	char shortTimeString[64];
+	int gsmSignalStrengthRaw;
+	int gsmSignalStrengthBars;
+	char serviceString[100];
+	char serviceCrossfadeString[100];
+	char serviceImages[2][100];
+	char operatorDirectory[1024];
+	unsigned serviceContentType;
+	int wifiSignalStrengthRaw;
+	int wifiSignalStrengthBars;
+	unsigned dataNetworkType;
+	int batteryCapacity;
+	unsigned batteryState;
+	char batteryDetailString[150];
+	int bluetoothBatteryCapacity;
+	int thermalColor;
+	unsigned thermalSunlightMode : 1;
+	unsigned slowActivity : 1;
+	unsigned syncActivity : 1;
+	char activityDisplayId[256];
+	unsigned bluetoothConnected : 1;
+	unsigned displayRawGSMSignal : 1;
+	unsigned displayRawWifiSignal : 1;
+	unsigned locationIconType : 1;
+	unsigned quietModeInactive : 1;
+	unsigned tetheringConnectionCount;
+	unsigned batterySaverModeActive : 1;
+	unsigned deviceIsRTL : 1;
+	unsigned lock : 1;
+	char breadcrumbTitle[256];
+	char breadcrumbSecondaryTitle[256];
+	char personName[100];
+	unsigned electronicTollCollectionAvailable : 1;
+	unsigned wifiLinkWarning : 1;
+	unsigned wifiSearching : 1;
+	double backgroundActivityDisplayStartDate;
+	unsigned shouldShowEmergencyOnlyStatus : 1;
+} SCD_Struct_UI61;
+
+// http://developer.limneos.net/index.php?ios=12.1&framework=UIKitCore.framework&header=UIKitCore-Structs.h
+typedef struct {
+	BOOL itemIsEnabled[41];
+	char timeString[64];
+	char shortTimeString[64];
+	char dateString[256];
+	int gsmSignalStrengthRaw;
+	int secondaryGsmSignalStrengthRaw;
+	int gsmSignalStrengthBars;
+	int secondaryGsmSignalStrengthBars;
+	char serviceString[100];
+	char secondaryServiceString[100];
+	char serviceCrossfadeString[100];
+	char secondaryServiceCrossfadeString[100];
+	char serviceImages[2][100];
+	char operatorDirectory[1024];
+	unsigned serviceContentType;
+	unsigned secondaryServiceContentType;
+	int wifiSignalStrengthRaw;
+	int wifiSignalStrengthBars;
+	unsigned dataNetworkType;
+	unsigned secondaryDataNetworkType;
+	int batteryCapacity;
+	unsigned batteryState;
+	char batteryDetailString[150];
+	int bluetoothBatteryCapacity;
+	int thermalColor;
+	unsigned thermalSunlightMode : 1;
+	unsigned slowActivity : 1;
+	unsigned syncActivity : 1;
+	char activityDisplayId[256];
+	unsigned bluetoothConnected : 1;
+	unsigned displayRawGSMSignal : 1;
+	unsigned displayRawWifiSignal : 1;
+	unsigned locationIconType : 1;
+	unsigned quietModeInactive : 1;
+	unsigned tetheringConnectionCount;
+	unsigned batterySaverModeActive : 1;
+	unsigned deviceIsRTL : 1;
+	unsigned lock : 1;
+	char breadcrumbTitle[256];
+	char breadcrumbSecondaryTitle[256];
+	char personName[100];
+	unsigned electronicTollCollectionAvailable : 1;
+	unsigned wifiLinkWarning : 1;
+	unsigned wifiSearching : 1;
+	double backgroundActivityDisplayStartDate;
+	unsigned shouldShowEmergencyOnlyStatus : 1;
+	unsigned secondaryCellularConfigured : 1;
+	char primaryServiceBadgeString[100];
+	char secondaryServiceBadgeString[100];
+} SCD_Struct_UI89;
+
 @interface UIStatusBarComposedData : NSObject
-@property (nonatomic,readonly) SCD_Struct_UI72 *rawData;
+@property (nonatomic,readonly) SCD_Struct_UI89 *rawData;
 @end
 
 @interface UIStatusBarForegroundStyleAttributes : NSObject
